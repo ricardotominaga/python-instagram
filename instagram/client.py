@@ -179,6 +179,11 @@ class InstagramAPI(oauth2.OAuth2API):
                 path="/users/self/requested-by",
                 root_class=User)
 
+    user_info = bind_method(
+                path="/users/self",
+                root_class=User,
+                response_type="entry")
+
     change_user_relationship = bind_method(
                 method="POST",
                 path="/users/{user_id}/relationship",
