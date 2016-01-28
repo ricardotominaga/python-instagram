@@ -184,6 +184,16 @@ class InstagramAPI(oauth2.OAuth2API):
                 root_class=User,
                 response_type="entry")
 
+    user_self_follows = bind_method(
+                path="/users/self/follows",
+                paginates=True,
+                root_class=User)
+
+    user_self_followed_by = bind_method(
+                path="/users/self/followed-by",
+                paginates=True,
+                root_class=User)
+
     change_user_relationship = bind_method(
                 method="POST",
                 path="/users/{user_id}/relationship",
